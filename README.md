@@ -1,6 +1,6 @@
 # Pulse Chat- AI SDK App
 
-A modern full-stack AI chat application built with **React + Vite** on the frontend and **Express.js** on the backend. The application uses the **Vercel AI SDK** to stream real-time responses from **Google Gemini (`gemini-1.5-flash`)** while delivering a smooth and responsive chat experience with live status indicators and a clean conversation interface.
+A modern full-stack AI chat application built with **React + Vite** on the frontend and **Express.js** on the backend. The application uses the **Vercel AI SDK** to stream real-time responses from **Google Gemini (`gemini-3.1-flash-lite`)** while delivering a smooth and responsive chat experience with live status indicators and a clean conversation interface.
 
 <img width="1438" height="817" alt="Screenshot 2026-05-11 at 22 22 45" src="https://github.com/user-attachments/assets/dfdda919-8d44-4888-bde2-a713fffe3f86" />
 
