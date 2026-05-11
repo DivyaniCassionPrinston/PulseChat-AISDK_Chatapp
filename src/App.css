@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+:root {
+  color-scheme: light;
+  --bg: #f5efe8;
+  --bg-2: #f9f6f2;
+  --ink: #1d1a16;
+  --muted: #6b635c;
+  --accent: #f26d4a;
+  --accent-2: #1f7a8c;
+  --panel: rgba(255, 255, 255, 0.8);
+  --shadow: 0 18px 40px rgba(23, 19, 15, 0.12);
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top right, #f4d8c1 0%, transparent 45%),
+    radial-gradient(circle at bottom left, #b6d9d4 0%, transparent 50%),
+    linear-gradient(120deg, var(--bg) 0%, var(--bg-2) 100%);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 18px 48px;
+}
+
+.app {
+  width: min(960px, 100%);
+  display: grid;
+  gap: 20px;
+  animation: floatIn 0.8s ease;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 6px;
+}
+
+.app-kicker {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.app-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(30px, 4vw, 48px);
+  margin: 6px 0 0;
+}
+
+.status {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--ink);
+}
+
+.status.online {
+  background: rgba(47, 178, 117, 0.16);
+  color: #1f6d49;
+}
+
+.status.busy {
+  background: rgba(242, 109, 74, 0.18);
+  color: #a64228;
+}
+
+.chat-panel {
+  background: var(--panel);
+  border-radius: var(--radius-xl);
+  padding: clamp(18px, 4vw, 28px);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.empty-state {
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px dashed rgba(31, 122, 140, 0.25);
+  text-align: center;
+}
+
+.empty-state h2 {
+  font-family: 'Fraunces', serif;
+  margin: 0 0 8px;
+  font-size: clamp(22px, 3vw, 28px);
+}
+
+.empty-state p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.message {
+  display: grid;
+  gap: 8px;
+}
+
+.message.user {
+  align-items: flex-end;
+}
+
+.message-label {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.message-bubble {
+  padding: 14px 18px;
+  border-radius: var(--radius-lg);
+  line-height: 1.5;
+  font-size: 15px;
+  background: white;
+  box-shadow: 0 12px 24px rgba(25, 20, 17, 0.1);
+}
+
+.message.user .message-bubble {
+  background: linear-gradient(120deg, #1f7a8c, #2ab3c4);
+  color: #f6fbfb;
+}
+
+.message.ai .message-bubble {
+  background: #fff6ef;
+  border: 1px solid rgba(242, 109, 74, 0.22);
+}
+
+.composer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: center;
+  background: white;
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.composer-field input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: #f4f3f2;
+  color: var(--ink);
+}
+
+.composer-field input:disabled {
+  opacity: 0.6;
+}
+
+.composer button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 12px 20px rgba(242, 109, 74, 0.25);
+}
+
+.composer button:hover {
+  transform: translateY(-1px);
+}
+
+.composer button:disabled {
+  cursor: not-allowed;
+  background: #c7b9b0;
+  box-shadow: none;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .composer {
+    grid-template-columns: 1fr;
+  }
+
+  .composer button {
+    width: 100%;
+  }
+}
